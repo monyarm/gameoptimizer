@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "advpng-bin": "^5.0.1",
+    "clean-css": "^5.1.5",
+    "clean-css-cli": "^5.3.3",
+    "gifsicle": "^5.2.0",
+    "glsl-man": "^1.1.14",
+    "html-minifier": "^4.0.0",
+    "jpegtran-bin": "^5.0.2",
+    "luamin": "github:hsandt/luamin#develop",
+    "mozjpeg": "^7.1.0",
+    "node-prune": "^1.0.2",
+    "optipng-bin": "^7.0.0",
+    "pngcrush-bin": "^5.0.1",
+    "pngout-bin": "^5.0.0",
+    "pngquant-bin": "^6.0.0",
+    "pretty-data": "^0.40.0",
+    "svgo": "^2.4.0",
+    "terser": "^5.7.1"
+  },
+  "scripts": {
+    "postinstall": "node-prune"
+  }
+}
