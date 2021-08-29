@@ -4,6 +4,9 @@ shopt -s dotglob nullglob globstar extglob
 OPTIM="$0"
 
 case $1 in
+    ~/*) IN="$1"
+        OUT="$2"
+    ;;
     /*) IN="$1"
         OUT="$2"
     ;;
@@ -59,8 +62,8 @@ ENDSIZE=0
 declare tasks=( wadmin  upxmin pymin luamin xmlmin jsonmin pngmin jpgmin gifmin \
 svgmin jsmin htmlmin archmin cssmin objmin glslmin ftlmin )
 
-rm -rf "$OUT"
-mkdir $OUT
+rm -rf "$OUT/*"
+#mkdir $OUT
 
 wineserver
 
@@ -77,4 +80,12 @@ wait
 wineserver -k
 cp -an ${copy_conf[@]} "$OUT"
 
-printf "\nTotal Savings: $GREEN$(format_size $(( $(du -b "$IN" | awk '{print $1, $8}') -  $(du -b "$OUT" | awk '{print $1, $8}'))) )$GREEN$NC\n"
+#INSIZE=$(du -bs "$IN" | grep total | awk '{print $1, $8}' || echo 0)
+#OUTSIZE=$(du -bs "$OUT" | grep total | awk '{print $1, $8}' || echo 0)
+INSIZE=$(find "$IN" -type f -printf '%s\n'| awk '{ total += $1 }; END { print total }' )
+OUTSIZE=$(find "$OUT" -type f -printf '%s\n'| awk '{ total += $1 }; END { print total }' )
+
+
+SIZEDIFF=$(( $INSIZE - $OUTSIZE ))
+
+printf "\nTotal Savings: $GREEN$(format_size $SIZEDIFF )$GREEN$NC\n"

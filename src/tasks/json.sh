@@ -8,7 +8,7 @@ _jsonmin(){
     start_task
     cp "$src" "$dest"
 
-    { "$DEPS/bin/minijson" --file "$dest" || cat "$src" > "$dest"; } 2>> /dev/null
+    { "$DEPS/bin/minijson" --file "$dest" || { rm -rf "$dest"; { node "$DEPS/jsonmin.js" "$src" || cat "$src"; } > "$dest"; }; }  2>> /dev/null
     
     end_task
 }

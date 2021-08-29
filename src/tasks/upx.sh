@@ -7,7 +7,7 @@ upxmin(){
 _upxmin(){
     start_task
     
-    upx "$src" -o "$dest" >> /dev/null
+    { upx "$src" -o "$dest" || cp "$src" "$dest" ; } >> /dev/null 2>&1
     
     end_task
 }

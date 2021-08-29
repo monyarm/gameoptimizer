@@ -29,7 +29,7 @@ jpg_conf=( "$IN/**/*.jpg" "$IN/**/*.jpeg" "$IN/**/*.jpe" )
 
 gif_conf=( "$IN/**/*.gif" )
 
-xml_conf=( "$IN/**/*.xml" "$IN/**/*.dae" "$IN/**/*.xlf" "$IN/**/*.rss" )
+xml_conf=( "$IN/**/*.xml" "$IN/**/*.dae" "$IN/**/*.xlf" "$IN/**/*.rss" "$IN/**/*.layout" )
 
 svg_conf=( "$IN/**/*.svg" )
 
@@ -43,7 +43,7 @@ upx_conf=( "$IN/**/*.x86" "$IN/**/*.x86_64" "$IN/**/*.exe" "$IN/**/*.dll" "$IN/*
     "$IN/**/bin_unix/linux_64_server" "$IN/**/bin_unix/linux_client"\
     "$IN/**/bin_unix/linux_server" "$IN/**/doomrl" "$IN/**/libs/Dwarf_Fortress"\
     "$IN/**/Funkin" "$IN/**/EDOPro" "$IN/**/freeorion/freeorion" "$IN/**/freeoriond"\
-"$IN/**/freeorionca" )
+"$IN/**/freeorionca" "$IN/**/Unciv" "$IN/**/Mindustry" "$IN/**/minecraft-launcher" )
 
 archive_conf=( "$IN/**/*.zip" "$IN/**/*.apk" "$IN/**/*.jar" "$IN/**/*.rpa" "$IN/**/*.pk3"\
     "$IN/**/*.pkz" "$IN/**/*.pke" "$IN/**/*.ipk3" "$IN/**/*.pk7" "$IN/**/*.ipk7"  "$IN/**/*.epk" \
