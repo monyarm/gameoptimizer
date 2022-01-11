@@ -13,29 +13,45 @@ function size() {
 function start_task() {
     dest="$(echo "$src" | sed s#$IN#$OUT#g)"
     mkdir -p "$( dirname "$dest")"
-    STARTSIZE=$(($(size "$src") ))
+        if [ -e "$src" ];then
+            STARTSIZE=$(($(size "$src") ))
+        else
+            STARTSIZE=0
+        fi
     temp_dir="$(mktemp -d)"
 
     #echo "Processing $(basename "$src")"
 
 }
 
-
 function process_files() {
     $OPTIM "$1" "$2"  >> /dev/null 2>&1
 }
 
 function end_task() {
-        ENDSIZE=$(($(size "$dest") )) 
+        if [ -e "$dest" ];then
+            ENDSIZE=$(($(size "$dest") )) 
+        else
+            ENDSIZE=$STARTSIZE
+        fi
         DIFF=$(( $STARTSIZE - $ENDSIZE ))
         if [[ $DIFF  -ge 0 ]]; then
-            printf "$(basename "$src") saved $GREEN$(format_size $DIFF)$GREEN$NC\n"
+            printf "$(basename "$src") saved\t$GREEN$(format_size $DIFF)$GREEN$NC\n"
+        fi
+        rm -rf "$temp_dir"
+}
+
+
+function end_task_del() {
+        DIFF=$(( $STARTSIZE ))
+        if [[ $DIFF  -ge 0 ]]; then
+            printf "$(basename "$src") deleted, saved\t$GREEN$(format_size $DIFF)$GREEN$NC\n"
         fi
         rm -rf "$temp_dir"
 }
 
 function format_size() {
-    echo $(numfmt --to=iec --suffix=B --padding=7 $1)
+    echo $(numfmt --to=iec --suffix=B $1)
 }
 
 function cputhreads() {
@@ -46,8 +62,12 @@ function minimize() {
     N=$(( $(cputhreads) - 1 ))
     (
         for src in "${@:2}"; do
-            ((i=i%N)); ((i++==0)) && wait
-            $1 &
+            
+            if [ -e "$src" ];then
+                ((i=i%N)); ((i++==0)) && wait
+                $1 &
+            fi
+            
         done
         wait
     )
