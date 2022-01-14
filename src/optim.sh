@@ -45,6 +45,7 @@ NODE_MODULES="$DEPS/node_modules/"
 . "${BASH_SOURCE%/*}/tasks/ftl.sh"
 . "${BASH_SOURCE%/*}/tasks/wad.sh"
 . "${BASH_SOURCE%/*}/tasks/ini.sh"
+. "${BASH_SOURCE%/*}/tasks/swf.sh"
 
 if [[ "$1" == "--download" ]]; then
     . "$DEPS/download.sh"
@@ -65,7 +66,7 @@ STARTSIZE=0
 ENDSIZE=0
 
 declare tasks=( wadmin upxmin pymin luamin xmlmin jsonmin pngmin jpgmin gifmin \
-svgmin jsmin htmlmin archmin cssmin objmin glslmin ftlmin inimin )
+svgmin jsmin htmlmin archmin cssmin objmin glslmin ftlmin inimin swfmin )
 
 rm -rf "$OUT/*"
 #mkdir $OUT

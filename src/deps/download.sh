@@ -24,5 +24,17 @@ rm -rf wadptr.rpm
 
 python -m pip install --user setuptools==57.5.0
 python -m pip install --user -rrequirements.txt
+
+git clone https://github.com/Arkq/swfpack
+cd swfpack
+autoreconf --install
+mkdir build && cd build
+../configure
+make
+cd src
+cp swfpack ../../../bin
+cd ../../../
+rm -rf swfpack
+
 npm i
 

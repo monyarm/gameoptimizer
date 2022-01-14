@@ -13,13 +13,8 @@ function size() {
 function start_task() {
     dest="$(echo "$src" | sed s#$IN#$OUT#g)"
     mkdir -p "$( dirname "$dest")"
-        if [ -e "$src" ];then
-            STARTSIZE=$(($(size "$src") ))
-        else
-            STARTSIZE=0
-        fi
+    STARTSIZE=$(($(size "$src") ))
     temp_dir="$(mktemp -d)"
-
     #echo "Processing $(basename "$src")"
 
 }

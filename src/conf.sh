@@ -52,7 +52,8 @@ upx_conf=( "$IN/**/*.x86" "$IN/**/*.x86_64" "$IN/**/*.exe" "$IN/**/*.dll" "$IN/*
     "$IN/**/Funkin" "$IN/**/EDOPro" "$IN/**/freeorion/freeorion" "$IN/**/freeoriond"\
     "$IN/**/freeorionca" "$IN/**/Unciv" "$IN/**/Mindustry" "$IN/**/minecraft-launcher"\
     "$IN/**/Shuggy" "$IN/**/AoW3" "$IN/**/AoW3_Debug" "$IN/**/AoW3Launcher"\
-    "$IN/**/AoW3Launcher.run" "$IN/**/bms_linux" "$IN/**/srcds_linux" "$IN/**/Blob" "$IN/**/Blob32" )
+    "$IN/**/AoW3Launcher.run" "$IN/**/bms_linux" "$IN/**/srcds_linux" "$IN/**/Blob"\
+    "$IN/**/Blob32" "$IN/**/ck2" )
 
 archive_conf=( "$IN/**/*.zip" "$IN/**/*.apk" "$IN/**/*.jar" "$IN/**/*.rpa" "$IN/**/*.pk3"\
     "$IN/**/*.pkz" "$IN/**/*.pke" "$IN/**/*.ipk3" "$IN/**/*.pk7" "$IN/**/*.ipk7"  "$IN/**/*.epk" \
@@ -61,7 +62,8 @@ archive_conf=( "$IN/**/*.zip" "$IN/**/*.apk" "$IN/**/*.jar" "$IN/**/*.rpa" "$IN/
 wad_conf=( "$IN/**/*.wad" )
 
 ini_conf=( "$IN/**/*.ini" "$IN/**/Engine/Localization/*/*.*"\
-    "$IN/**/RascalGame/Localization/*/*.*" "$IN/**/BmGame/Localization/*/*.*" )
+    "$IN/**/RascalGame/Localization/*/*.*" "$IN/**/BmGame/Localization/*/*.*"\
+    "$IN/**/LOTDGame/Localization/*/*.*"  )
 
 copy_conf=()
 
@@ -71,16 +73,20 @@ del_conf=( "$OUT/**/soundtrack/Afterfall InSanity - Music Inspired by the Game/*
     "$OUT/**/soundtrack/Afterfall InSanity Original Soundtrack - Extended Edtion/*.jpg"\
     "$OUT/**/soundtrack/Afterfall InSanity - Music Inspired by the Game/*.txt"\
     "$OUT/**/soundtrack/Afterfall InSanity Original Soundtrack - Extended Edtion/*.txt"\
-    "$OUT/**/Digital Extras/**/*.*"\
+    "$OUT/**/Digital Extras/**/*.*" "$OUT/**/ORIGINAL SOUNDTRACK/**/*.*"\
     "$OUT/**/super_secret.rar"\
-    "$OUT/**/redist/amdcpusetup.exe" "$OUT/**/redist/directx/*.cab" "$OUT/**/redist/directx/*.dll"\
-    "$OUT/**/redist/directx/*exe" "$OUT/**/redist/dotnet/*.exe" "$OUT/**/redist/dotnet/*.dll"\
-    "$OUT/**/redist/vcredist_x64.exe" "$OUT/**/redist/vcredist_x86.exe" "$OUT/**/redist/PhysX*.exe"\
-    "$OUT/**/DirectX/*.cab" "$OUT/**/DirectX/*.exe"\
+    "$OUT/**/*/amdcpusetup.exe" "$OUT/**/redist/directx/*.dll" "$OUT/**/Drivers/directx/*.dll"\
+    "$OUT/**/redist/dotnet/*.exe" "$OUT/**/redist/dotnet/*.dll"\
+    "$OUT/**/*/vc*redist_x64.exe" "$OUT/**/*/vc*redist_x86.exe" "$OUT/**/*/PhysX*.exe"\
+    "$OUT/**/DirectX*/*.cab" "$OUT/**/DirectX*/*.exe"\
     "$OUT/**/Engine/Extras/Redist/**/*.exe" "$OUT/**/Engine/Extras/Redist/**/*.dll"\
     "$OUT/**/Engine/Extras/Redist/**/*.cab"\
     "$OUT/**/PhysX/*.exe" "$OUT/**/PhysX/*.cab"\
     "$OUT/**/Support/OpenAL/*.exe" "$OUT/**/Support/Direct/*.dll"\
     "$OUT/**/*Readme*.txt" "$OUT/**/*Change*Log*.txt" "$OUT/**/*EULA*.txt" "$OUT/**/*EULA*.rtf"\
-    "$OUT/**/*Manual*.rtf" "$OUT/**/*Manual*.pdf" "$OUT/**/Remember - Short Story Collection.pdf" \ 
-    "$OUT/**/QuickInfo.pdf" "$OUT/**/*Readme*.rtf" )
+    "$OUT/**/*Manual*.rtf" "$OUT/**/*Manual*.pdf" "$OUT/**/Remember - Short Story Collection.pdf"\ 
+    "$OUT/**/QuickInfo.pdf" "$OUT/**/*Readme*.rtf" "$OUT/**/LGPL License.txt"\
+    "$OUT/**/Notice WebKit.txt" "$OUT/**/COPYING" "$OUT/**/COPYING-LGPL-2.1"\
+    "$OUT/**/COPYING-MPL-1.1" )
+
+swf_conf=( "$IN/**/*.swf" )
