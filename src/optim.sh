@@ -1,5 +1,5 @@
 #!/bin/env bash
-shopt -s dotglob nullglob globstar extglob
+shopt -s dotglob nullglob globstar extglob nocaseglob
 
 OPTIM="$0"
 
@@ -15,7 +15,6 @@ case $1 in
     ;;
 esac
 
-
 SOURCE=${BASH_SOURCE[0]}
 while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
   DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
@@ -30,6 +29,10 @@ NODE_MODULES="$DEPS/node_modules/"
 
 . "${BASH_SOURCE%/*}/conf.sh"
 . "${BASH_SOURCE%/*}/util.sh"
+
+. "${BASH_SOURCE%/*}/tasks/copy.sh"
+. "${BASH_SOURCE%/*}/tasks/del.sh"
+. "${BASH_SOURCE%/*}/tasks/fallocate.sh"
 
 . "${BASH_SOURCE%/*}/tasks/sh.sh"
 . "${BASH_SOURCE%/*}/tasks/upx.sh"
@@ -49,6 +52,8 @@ NODE_MODULES="$DEPS/node_modules/"
 . "${BASH_SOURCE%/*}/tasks/glsl.sh"
 . "${BASH_SOURCE%/*}/tasks/ftl.sh"
 . "${BASH_SOURCE%/*}/tasks/wad.sh"
+. "${BASH_SOURCE%/*}/tasks/ini.sh"
+. "${BASH_SOURCE%/*}/tasks/swf.sh"
 
 if [[ "$1" == "--download" ]]; then
     . "$DEPS/download.sh"
@@ -68,13 +73,15 @@ fi;
 STARTSIZE=0
 ENDSIZE=0
 
-declare tasks=( wadmin  upxmin pymin luamin xmlmin jsonmin pngmin jpgmin gifmin \
-svgmin jsmin htmlmin archmin cssmin objmin glslmin ftlmin )
+declare tasks=( wadmin upxmin pymin luamin xmlmin jsonmin pngmin jpgmin gifmin \
+svgmin jsmin htmlmin archmin cssmin objmin glslmin ftlmin inimin swfmin )
 
 rm -rf "$OUT/*"
 #mkdir $OUT
 
 wineserver
+
+oIFS=${IFS:-$' \t\n'} IFS=''
 
 N=$(( $(cputhreads) - 1 ))
 (
@@ -86,14 +93,21 @@ N=$(( $(cputhreads) - 1 ))
 )
 
 wait
+
 wineserver -k
-cp -an ${copy_conf[@]} "$OUT"
+
+copy_files
+
+delmin
+
+fallocatetask
+
+IFS=$oIFS
 
 #INSIZE=$(du -bs "$IN" | grep total | awk '{print $1, $8}' || echo 0)
 #OUTSIZE=$(du -bs "$OUT" | grep total | awk '{print $1, $8}' || echo 0)
 INSIZE=$(find "$IN" -type f -printf '%s\n'| awk '{ total += $1 }; END { print total }' )
 OUTSIZE=$(find "$OUT" -type f -printf '%s\n'| awk '{ total += $1 }; END { print total }' )
-
 
 SIZEDIFF=$(( $INSIZE - $OUTSIZE ))
 

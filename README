@@ -5,3 +5,5 @@ python3
 node
 npm
 upx
+git
+make (build-essentials or equivalent)

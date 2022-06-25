@@ -1,16 +1,15 @@
 #!/bin/env bash
 
-shmin(){
-    minimize "_shmin" ${sh_conf[@]}
+inimin(){
+    minimize "_inimin" ${ini_conf[@]}
 }
 
-_shmin(){
+_inimin(){
     start_task
     
     cat "$src" |\
     awk '(/^$/ || (NR == 1 && /^#!/) || /^[^#]/) && NF' |\
-    sed 's/function \([a-zA-Z0-9_-]*\)() */\1()/'|\
-    sed ':a;N;$!ba;s/\\\n */ /g'\
+    awk '!/^;/'\
     > "$dest"
     
     end_task
