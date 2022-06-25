@@ -115,7 +115,7 @@ pack_zip() {
     7za a -mm=Deflate -mfb=258 -mpass=15 -r "$1"  "$2/*"  >> /dev/null 2>&1
 
     "$DEPS/bin/defluff" < "$1" > "$temp_dir/dist.zip" 2>> /dev/null
-    WINEDEBUG=-all python3  "$DEPS/bin/watcher.py" 'starting debugger...' wine "$DEPS/bin/deflopt.exe" -d -s "$temp/dist.zip"  >> /dev/null
+    WINEDEBUG=-all python3  "$DEPS/bin/watcher.py" 'starting debugger...' wine "$DEPS/bin/deflopt.exe" -d -s "$(winepath -w "$temp/dist.zip")"  >> /dev/null
     cp "$temp_dir/dist.zip" "$1"
     
 }
