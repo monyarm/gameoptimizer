@@ -85,7 +85,6 @@ del_conf=( "$OUT/**/soundtrack/Afterfall InSanity - Music Inspired by the Game/*
     "$OUT/**/Support/OpenAL/*.exe" "$OUT/**/Support/Direct/*.dll"\
     "$OUT/**/*Readme*.txt" "$OUT/**/*Change*Log*.txt" "$OUT/**/*EULA*.txt" "$OUT/**/*EULA*.rtf"\
     "$OUT/**/*Manual*.rtf" "$OUT/**/*Manual*.pdf" "$OUT/**/Remember - Short Story Collection.pdf"\
-<<<<<<< HEAD
     "$OUT/**/QuickInfo.pdf" "$OUT/**/*Readme*.rtf" "$OUT/**/LGPL License.txt" "$OUT/**/Bonus/Dead.Effect.2*.pdf"\
     "$OUT/**/Notice WebKit.txt" "$OUT/**/COPYING" "$OUT/**/COPYING-LGPL-2.1"\
     "$OUT/**/COPYING-MPL-1.1" \
