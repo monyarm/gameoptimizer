@@ -54,6 +54,7 @@ NODE_MODULES="$DEPS/node_modules/"
 . "${BASH_SOURCE%/*}/tasks/wad.sh"
 . "${BASH_SOURCE%/*}/tasks/ini.sh"
 . "${BASH_SOURCE%/*}/tasks/swf.sh"
+. "${BASH_SOURCE%/*}/tasks/video.sh"
 
 if [[ "$1" == "--download" ]]; then
     . "$DEPS/download.sh"
@@ -74,12 +75,14 @@ STARTSIZE=0
 ENDSIZE=0
 
 declare tasks=( wadmin upxmin pymin luamin xmlmin jsonmin pngmin jpgmin gifmin \
-svgmin jsmin htmlmin archmin cssmin objmin glslmin ftlmin inimin swfmin )
+svgmin jsmin htmlmin archmin cssmin objmin glslmin ftlmin inimin swfmin videomin)
 
 rm -rf "$OUT/*"
 #mkdir $OUT
 
-wineserver
+wineserver >/dev/null 2>&1
+export WINEDEBUG=-all
+
 
 oIFS=${IFS:-$' \t\n'} IFS=''
 
@@ -94,7 +97,7 @@ N=$(( $(cputhreads) - 1 ))
 
 wait
 
-wineserver -k
+wineserver -k >/dev/null 2>&1
 
 copy_files
 

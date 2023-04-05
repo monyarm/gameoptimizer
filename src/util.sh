@@ -57,12 +57,12 @@ function minimize() {
     N=$(( $(cputhreads) - 1 ))
     (
         for src in "${@:2}"; do
-            
+
             if [ -e "$src" ];then
                 ((i=i%N)); ((i++==0)) && wait
-                $1 &
+        	$1 &
             fi
-            
+
         done
         wait
     )

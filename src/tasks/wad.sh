@@ -8,7 +8,7 @@ _wadmin(){
     start_task
     
     
-    WINEDEBUG=-all python3  "$DEPS/bin/watcher.py" 'starting debugger...' wine "$DEPS/bin/lumpmod.exe" "$src" list -v | egrep "(PNG)|(JPG)" >> $temp_dir/lumps 
+    python3  "$DEPS/bin/watcher.py" 'starting debugger...' wine "$DEPS/bin/lumpmod.exe" "$src" list -v | egrep "(PNG)|(JPG)" >> $temp_dir/lumps 
     
     cp "$src" "$dest"
     
@@ -20,7 +20,7 @@ _wadmin(){
         ext="$(echo $p | awk -F ' ' '{print $4}' | sed 's/[^[:print:]]//g' | tr '[:upper:]' '[:lower:]' )"
 
 
-        WINEDEBUG=-all python3  "$DEPS/bin/watcher.py" 'starting debugger...' wine "$DEPS/bin/lumpmod.exe" "$src" extract "$name" "$temp_dir/in/$name.$ext" >> /dev/null 2>&1
+        python3  "$DEPS/bin/watcher.py" 'starting debugger...' wine "$DEPS/bin/lumpmod.exe" "$src" extract "$name" "$temp_dir/in/$name.$ext" >> /dev/null 2>&1
         
     done < $temp_dir/lumps
 
@@ -31,7 +31,7 @@ _wadmin(){
         ext="$(echo $p | awk -F ' ' '{print $4}' | sed 's/[^[:print:]]//g' | tr '[:upper:]' '[:lower:]' )"
 
 
-        WINEDEBUG=-all python3  "$DEPS/bin/watcher.py" 'starting debugger...' wine "$DEPS/bin/lumpmod.exe" "$dest" update "$name" "$temp_dir/out/$name.$ext"  >> /dev/null 2>&1
+        python3  "$DEPS/bin/watcher.py" 'starting debugger...' wine "$DEPS/bin/lumpmod.exe" "$dest" update "$name" "$temp_dir/out/$name.$ext"  >> /dev/null 2>&1
         
     done < $temp_dir/lumps
 

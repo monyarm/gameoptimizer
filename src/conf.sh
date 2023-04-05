@@ -84,9 +84,12 @@ del_conf=( "$OUT/**/soundtrack/Afterfall InSanity - Music Inspired by the Game/*
     "$OUT/**/PhysX/*.exe" "$OUT/**/PhysX/*.cab"\
     "$OUT/**/Support/OpenAL/*.exe" "$OUT/**/Support/Direct/*.dll"\
     "$OUT/**/*Readme*.txt" "$OUT/**/*Change*Log*.txt" "$OUT/**/*EULA*.txt" "$OUT/**/*EULA*.rtf"\
-    "$OUT/**/*Manual*.rtf" "$OUT/**/*Manual*.pdf" "$OUT/**/Remember - Short Story Collection.pdf"\ 
+    "$OUT/**/*Manual*.rtf" "$OUT/**/*Manual*.pdf" "$OUT/**/Remember - Short Story Collection.pdf"\
     "$OUT/**/QuickInfo.pdf" "$OUT/**/*Readme*.rtf" "$OUT/**/LGPL License.txt"\
     "$OUT/**/Notice WebKit.txt" "$OUT/**/COPYING" "$OUT/**/COPYING-LGPL-2.1"\
-    "$OUT/**/COPYING-MPL-1.1" )
+    "$OUT/**/COPYING-MPL-1.1" "$OUT/**/*Guide*.pdf" \
+    "$OUT/**/BaristaRelease.png" "$OUT/**/HowToImage.png" "$OUT/**/PUT GAME FILE HERE" )
 
 swf_conf=( "$IN/**/*.swf" )
+
+video_conf=( "$IN/**/*.webm" "$IN/**/*.mp4" )
