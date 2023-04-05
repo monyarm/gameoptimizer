@@ -6,7 +6,8 @@ NC='\033[0m'
 
 function size() {
 
-    stat --printf="%s" "$1"
+    #stat --printf="%s" "$1"
+    echo $(( $(stat --printf="%b" "$1") * $(stat --printf="%B" "$1") ))
 
 }
 
@@ -46,7 +47,7 @@ function end_task_del() {
 }
 
 function format_size() {
-    echo $(numfmt --to=iec --suffix=B $1)
+    numfmt --to=iec --suffix=B -- "$1"
 }
 
 function cputhreads() {

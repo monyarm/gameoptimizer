@@ -73,7 +73,7 @@ del_conf=( "$OUT/**/soundtrack/Afterfall InSanity - Music Inspired by the Game/*
     "$OUT/**/soundtrack/Afterfall InSanity Original Soundtrack - Extended Edtion/*.jpg"\
     "$OUT/**/soundtrack/Afterfall InSanity - Music Inspired by the Game/*.txt"\
     "$OUT/**/soundtrack/Afterfall InSanity Original Soundtrack - Extended Edtion/*.txt"\
-    "$OUT/**/Digital Extras/**/*.*" "$OUT/**/ORIGINAL SOUNDTRACK/**/*.*"\
+    "$OUT/**/Digital Extras/**/*.*" "$OUT/**/ORIGINAL SOUNDTRACK/**/*.*" "$OUT/**/Bonus/OST/**/*.*"\
     "$OUT/**/super_secret.rar"\
     "$OUT/**/*/amdcpusetup.exe" "$OUT/**/redist/directx/*.dll" "$OUT/**/Drivers/directx/*.dll"\
     "$OUT/**/redist/dotnet/*.exe" "$OUT/**/redist/dotnet/*.dll"\
@@ -84,9 +84,14 @@ del_conf=( "$OUT/**/soundtrack/Afterfall InSanity - Music Inspired by the Game/*
     "$OUT/**/PhysX/*.exe" "$OUT/**/PhysX/*.cab"\
     "$OUT/**/Support/OpenAL/*.exe" "$OUT/**/Support/Direct/*.dll"\
     "$OUT/**/*Readme*.txt" "$OUT/**/*Change*Log*.txt" "$OUT/**/*EULA*.txt" "$OUT/**/*EULA*.rtf"\
-    "$OUT/**/*Manual*.rtf" "$OUT/**/*Manual*.pdf" "$OUT/**/Remember - Short Story Collection.pdf"\ 
-    "$OUT/**/QuickInfo.pdf" "$OUT/**/*Readme*.rtf" "$OUT/**/LGPL License.txt"\
+    "$OUT/**/*Manual*.rtf" "$OUT/**/*Manual*.pdf" "$OUT/**/Remember - Short Story Collection.pdf"\
+    "$OUT/**/QuickInfo.pdf" "$OUT/**/*Readme*.rtf" "$OUT/**/LGPL License.txt" "$OUT/**/Bonus/Dead.Effect.2*.pdf"\
     "$OUT/**/Notice WebKit.txt" "$OUT/**/COPYING" "$OUT/**/COPYING-LGPL-2.1"\
-    "$OUT/**/COPYING-MPL-1.1" )
+    "$OUT/**/COPYING-MPL-1.1" \
+    "$OUT/**/Help/DeusEx.ico" "$OUT/**/Help/Logo.bmp" "$OUT/**/Help/LogoSmall.bmp" "$OUT/**/Help/MPAdmin.htm"\
+    "$OUT/**/Help/MPMap.htm" "$OUT/**/Help/PatchFix.htm" "$OUT/**/Help/ReadMe.htm"\
+    "$OUT/**/Help/ReadMeMPStrategy.htm" "$OUT/**/Help/ReadMeMultiplayer.htm" "$OUT/**/Help/ReadMePatch1.htm"\
+    "$OUT/**/Manual/ar405eng.exe" "$OUT/**/Manual/Deus Ex Manual v6.pdf" \
+    "$OUT/**/Manual/Deus EX newspaper v2.pdf" "$OUT/**/Manual/Manual Cover v.5.pdf" )
 
 swf_conf=( "$IN/**/*.swf" )

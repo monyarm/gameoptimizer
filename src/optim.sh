@@ -66,7 +66,7 @@ STARTSIZE=0
 ENDSIZE=0
 
 declare tasks=( wadmin upxmin pymin luamin xmlmin jsonmin pngmin jpgmin gifmin \
-svgmin jsmin htmlmin archmin cssmin objmin glslmin ftlmin inimin swfmin )
+svgmin jsmin htmlmin cssmin objmin glslmin ftlmin inimin swfmin archmin )
 
 rm -rf "$OUT/*"
 #mkdir $OUT
@@ -98,8 +98,8 @@ IFS=$oIFS
 
 #INSIZE=$(du -bs "$IN" | grep total | awk '{print $1, $8}' || echo 0)
 #OUTSIZE=$(du -bs "$OUT" | grep total | awk '{print $1, $8}' || echo 0)
-INSIZE=$(find "$IN" -type f -printf '%s\n'| awk '{ total += $1 }; END { print total }' )
-OUTSIZE=$(find "$OUT" -type f -printf '%s\n'| awk '{ total += $1 }; END { print total }' )
+INSIZE=$(find "$IN"   -type f -exec stat --printf '%b\t%B\n' "{}" \; | awk '{ total += ( $1 * $2 ) }; END { print total }' )
+OUTSIZE=$(find "$OUT" -type f -exec stat --printf '%b\t%B\n' "{}" \; | awk '{ total += ( $1 * $2 ) }; END { print total }' )
 
 SIZEDIFF=$(( $INSIZE - $OUTSIZE ))
 
