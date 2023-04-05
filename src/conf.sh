@@ -53,7 +53,7 @@ upx_conf=( "$IN/**/*.x86" "$IN/**/*.x86_64" "$IN/**/*.exe" "$IN/**/*.dll" "$IN/*
     "$IN/**/freeorionca" "$IN/**/Unciv" "$IN/**/Mindustry" "$IN/**/minecraft-launcher"\
     "$IN/**/Shuggy" "$IN/**/AoW3" "$IN/**/AoW3_Debug" "$IN/**/AoW3Launcher"\
     "$IN/**/AoW3Launcher.run" "$IN/**/bms_linux" "$IN/**/srcds_linux" "$IN/**/Blob"\
-    "$IN/**/Blob32" "$IN/**/ck2" )
+    "$IN/**/Blob32" "$IN/**/ck2" "$IN/**/endless-sky" )
 
 archive_conf=( "$IN/**/*.zip" "$IN/**/*.apk" "$IN/**/*.jar" "$IN/**/*.rpa" "$IN/**/*.pk3"\
     "$IN/**/*.pkz" "$IN/**/*.pke" "$IN/**/*.ipk3" "$IN/**/*.pk7" "$IN/**/*.ipk7"  "$IN/**/*.epk" \
@@ -85,6 +85,7 @@ del_conf=( "$OUT/**/soundtrack/Afterfall InSanity - Music Inspired by the Game/*
     "$OUT/**/Support/OpenAL/*.exe" "$OUT/**/Support/Direct/*.dll"\
     "$OUT/**/*Readme*.txt" "$OUT/**/*Change*Log*.txt" "$OUT/**/*EULA*.txt" "$OUT/**/*EULA*.rtf"\
     "$OUT/**/*Manual*.rtf" "$OUT/**/*Manual*.pdf" "$OUT/**/Remember - Short Story Collection.pdf"\
+<<<<<<< HEAD
     "$OUT/**/QuickInfo.pdf" "$OUT/**/*Readme*.rtf" "$OUT/**/LGPL License.txt" "$OUT/**/Bonus/Dead.Effect.2*.pdf"\
     "$OUT/**/Notice WebKit.txt" "$OUT/**/COPYING" "$OUT/**/COPYING-LGPL-2.1"\
     "$OUT/**/COPYING-MPL-1.1" \
@@ -92,6 +93,12 @@ del_conf=( "$OUT/**/soundtrack/Afterfall InSanity - Music Inspired by the Game/*
     "$OUT/**/Help/MPMap.htm" "$OUT/**/Help/PatchFix.htm" "$OUT/**/Help/ReadMe.htm"\
     "$OUT/**/Help/ReadMeMPStrategy.htm" "$OUT/**/Help/ReadMeMultiplayer.htm" "$OUT/**/Help/ReadMePatch1.htm"\
     "$OUT/**/Manual/ar405eng.exe" "$OUT/**/Manual/Deus Ex Manual v6.pdf" \
-    "$OUT/**/Manual/Deus EX newspaper v2.pdf" "$OUT/**/Manual/Manual Cover v.5.pdf" )
+    "$OUT/**/Manual/Deus EX newspaper v2.pdf" "$OUT/**/Manual/Manual Cover v.5.pdf"\
+    "$OUT/**/QuickInfo.pdf" "$OUT/**/*Readme*.rtf" "$OUT/**/LGPL License.txt"\
+    "$OUT/**/Notice WebKit.txt" "$OUT/**/COPYING" "$OUT/**/COPYING-LGPL-2.1"\
+    "$OUT/**/COPYING-MPL-1.1" "$OUT/**/*Guide*.pdf" \
+    "$OUT/**/BaristaRelease.png" "$OUT/**/HowToImage.png" "$OUT/**/PUT GAME FILE HERE" )
 
 swf_conf=( "$IN/**/*.swf" )
+
+video_conf=( "$IN/**/*.webm" "$IN/**/*.mp4" )

@@ -3,6 +3,7 @@ in
 out
 build
 src/deps/node_modules
+benchmark
 
 # Libreoffice
 .~lock.*
